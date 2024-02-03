@@ -5,8 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Akhmetova41"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Akhmetova41" Height="450" Width="800" MinHeight="400" MinWidth="700" FontFamily="Comic Sans MS" Icon="Res\icon.ico">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Image Source="Res\logo.png" HorizontalAlignment="Left"></Image>
+        <TextBlock Text="41 размер" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30"></TextBlock>
+        <Frame Grid.Row="1" Name="MainFrame" ContentRendered="MainFrame_ContentRendered" NavigationUIVisibility="Hidden"></Frame>
+        <Button Content="Назад" HorizontalAlignment="Right" Name="BtnBack" Click="BtnBack_Click"></Button>
     </Grid>
 </Window>
