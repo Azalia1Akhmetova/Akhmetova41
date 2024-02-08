@@ -186,6 +186,16 @@
       <DependentUpon>AkhmetovaModel.edmx</DependentUpon>
       <LastGenOutput>AkhmetovaModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="import\B320R5.jpg" />
+    <Resource Include="import\D329H3.jpg" />
+    <Resource Include="import\D572U8.jpg" />
+    <Resource Include="import\F572H7.jpg" />
+    <Resource Include="import\F635R4.jpg" />
+    <Resource Include="import\G432E4.jpg" />
+    <Resource Include="import\G783F5.jpg" />
+    <Resource Include="import\H782T5.jpg" />
+    <Resource Include="import\J384T6.jpg" />
+    <Resource Include="import\А112Т4.jpg" />
     <Resource Include="Res\picture.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
