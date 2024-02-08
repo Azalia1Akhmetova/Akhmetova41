@@ -31,5 +31,10 @@ namespace Akhmetova41
         {
             Manager.MainFrame.Navigate(new AddEditPage());
         }
+
+        private void TBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
