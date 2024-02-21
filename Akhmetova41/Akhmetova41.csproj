@@ -101,9 +101,6 @@
     <Compile Include="Shoes.xaml.cs">
       <DependentUpon>Shoes.xaml</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>AkhmetovaModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="User.cs">
       <DependentUpon>AkhmetovaModel.tt</DependentUpon>
     </Compile>
@@ -176,16 +173,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AkhmetovaModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AkhmetovaModel.edmx</DependentUpon>
-      <LastGenOutput>AkhmetovaModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="AkhmetovaModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AkhmetovaModel.edmx</DependentUpon>
-      <LastGenOutput>AkhmetovaModel.cs</LastGenOutput>
-    </Content>
     <Resource Include="import\B320R5.jpg" />
     <Resource Include="import\D329H3.jpg" />
     <Resource Include="import\D572U8.jpg" />
@@ -199,6 +186,18 @@
     <Resource Include="Res\picture.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AkhmetovaModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AkhmetovaModel.edmx</DependentUpon>
+      <LastGenOutput>AkhmetovaModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="AkhmetovaModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AkhmetovaModel.edmx</DependentUpon>
+      <LastGenOutput>AkhmetovaModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

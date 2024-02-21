@@ -14,12 +14,42 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        
         <WrapPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.Row="1">
+            
             <StackPanel Orientation="Horizontal" Margin="10">
                 <TextBlock Text="Введите название для поиска" Width="360" TextAlignment="Left" FontSize="25"></TextBlock>
                 <TextBox Name="TBoxSearch" Width="300" FontSize="20" TextChanged="TBoxSearch_TextChanged"></TextBox>
             </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="Выберите размер скидки" TextAlignment="Left"
+                           Width="305" FontSize="25"></TextBlock>
+                <ComboBox Name="ComboType" SelectionChanged="ComboType_SelectionChanged"
+                          FontSize="20" Width="200" Height="30">
+                    <TextBlock>Все</TextBlock>
+                    <TextBlock>от 0 до 10%</TextBlock>
+                    <TextBlock>от 10 до 15%</TextBlock>
+                    <TextBlock>от 15% и более</TextBlock>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Orientation="Vertical" Margin="5">
+                <RadioButton Content="По возрастанию стоимости" GroupName="Sort"
+                             Width="360" FontSize="25" Name="RBittonUp" Checked="RBittonUp_Checked"></RadioButton>
+                <RadioButton Content="По убыванию стоимости" Margin="5" GroupName="Sort"
+                             Width="360" FontSize="25" Name="RButtonDown" Checked="RButtonDown_Checked"></RadioButton>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <TextBlock Text="Показано " HorizontalAlignment="Left" FontSize="20"></TextBlock>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Name="Count1" FontSize="20"/>
+                    <TextBlock Text=" из " HorizontalAlignment="Left" FontSize="20"></TextBlock>
+                    <TextBlock Name="Count2" FontSize="20"/>
+                </StackPanel>
+            </StackPanel>
+            
         </WrapPanel>
+        
         <ListView Name="ShoesListView" Grid.Row="2">
             <ListView.ItemTemplate>
                 <DataTemplate>

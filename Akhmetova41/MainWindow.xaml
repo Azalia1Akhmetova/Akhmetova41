@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Akhmetova41"
         mc:Ignorable="d"
-        Title="Akhmetova41" Height="450" Width="800" MinHeight="400" MinWidth="700" FontFamily="Comic Sans MS" Icon="Res\icon.ico">
+        Title="Akhmetova41" Height="450" Width="800" MinHeight="400" MinWidth="700"
+        MaxWidth="1100" MaxHeight="700" FontFamily="Comic Sans MS" Icon="Res\icon.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
