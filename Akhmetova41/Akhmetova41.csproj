@@ -82,6 +82,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AkhmetovaModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="AuthPage.xaml.cs">
+      <DependentUpon>AuthPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Manager.cs" />
     <Compile Include="Order.cs">
       <DependentUpon>AkhmetovaModel.tt</DependentUpon>
@@ -105,6 +108,10 @@
       <DependentUpon>AkhmetovaModel.tt</DependentUpon>
     </Compile>
     <Page Include="AddEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AuthPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -23,7 +23,7 @@ namespace Akhmetova41
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new Shoes());
+            MainFrame.Navigate(new AuthPage());
             Manager.MainFrame = MainFrame;
         }
 

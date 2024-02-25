@@ -25,9 +25,21 @@ namespace Akhmetova41
         int CurrentPage = 0;
         List<Shoes> CurrentPageList=new List<Shoes>();
         List<Shoes> TableList;
-        public Shoes()
+        public Shoes(User user)
         {
             InitializeComponent();
+
+            FioTB.Text = user.UserSurname + " " + user.UserName + " " + user.UserPatronymic;
+            switch(user.UserRole)
+            {
+                case 1:
+                    RoleTB.Text = "Клиент";break;
+                case 2:
+                    RoleTB.Text = "Менеджер";break;
+                case 3:
+                    RoleTB.Text = "Администратор";break;
+            }
+
             var currentShoes = Akhmetova41Entities.GetContext().Product.ToList();
             ShoesListView.ItemsSource = currentShoes;
             ComboType.SelectedIndex = 0;
