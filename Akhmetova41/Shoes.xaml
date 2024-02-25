@@ -58,6 +58,7 @@
         </WrapPanel>
         
         <ListView Name="ShoesListView" Grid.Row="2">
+            
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -88,6 +89,7 @@
                         <TextBlock Text="{Binding ProductCost}" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" FontSize="20"></TextBlock>
                         <TextBlock Text="Скидка" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" FontSize="20"></TextBlock>
                         <TextBlock Text="{Binding ProductDiscountAmount,StringFormat={}{0:0} %}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" FontSize="35"></TextBlock>
+                        <Button Content="Добавить к заказу" Name="OrderBtn" Click="OrderBtn_Click"></Button>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

@@ -1,0 +1,90 @@
+﻿<Window x:Class="Akhmetova41.OrderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Akhmetova41"
+        mc:Ignorable="d"
+        Title="OrderWindow" Height="450" Width="800" FontFamily="Comic Sans MS">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="5*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Дата формирования заказа" Margin="10,10,10,10" FontSize="20" Grid.Row="0" Grid.Column="0"></TextBlock>
+        <DatePicker Name="OrderDP" Grid.Row="0" Grid.Column="1" Margin="10" FontSize="20"></DatePicker>
+        
+        <TextBlock Text="Дата доставки заказа" Margin="10,10,10,10" FontSize="20" Grid.Row="1" Grid.Column="0"></TextBlock>
+        <DatePicker Grid.Row="1" Grid.Column="1" Margin="10,10,10,10" FontSize="20"></DatePicker>
+        
+        <TextBlock Text="ФИО клиента" Margin="10,10,10,10" FontSize="20" Grid.Row="2" Grid.Column="0"></TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="1" Margin="10" FontSize="20" Name="ClientTB"></TextBlock>
+        
+        <TextBlock Text="Номер заказа" Margin="10,10,10,10" FontSize="20" Grid.Row="3" Grid.Column="0"></TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="1" Margin="10" FontSize="20" Name="TBOrderID"></TextBlock>
+        
+        <TextBlock Text="Пункт выдачи" Margin="10,10,10,10" FontSize="20" Grid.Row="5" Grid.Column="0"></TextBlock>
+        <ComboBox Name="PickupCombo" Grid.Column="1" Grid.Row="5" Margin="10"></ComboBox> 
+        
+        <Button Content="Сохранить" Grid.Column="1" Grid.Row="6" Name="SaveBtn" Click="SaveBtn_Click"></Button>
+
+        <ListView Name="OrderListView" Grid.Row="4" SelectionChanged="OrderListView_SelectionChanged">
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Добавить к заказу" Click="MenuItem_Click"></MenuItem>
+                </ContextMenu>
+            </ListView.ContextMenu>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="750"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"></RowDefinition>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Image Width="200" Grid.Column="0" Grid.RowSpan="4" Stretch="UniformToFill"  HorizontalAlignment="Center">
+                            <Image.Source>
+                                <Binding Path="ProductPhoto">
+                                    <Binding.TargetNullValue>
+                                        <ImageSource>
+                                            Res\picture.png
+                                        </ImageSource>
+                                    </Binding.TargetNullValue>
+                                </Binding>
+                            </Image.Source>
+                        </Image>
+                        <TextBlock Text="{Binding ProductName}" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" FontSize="23" TextWrapping="Wrap"></TextBlock>
+                        <TextBlock Text="{Binding ProductDescription}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" FontSize="20"></TextBlock>
+                        <TextBlock Text="{Binding ProductManufacturer}" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" FontSize="20"></TextBlock>
+                        <TextBlock Text="{Binding ProductCost}" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" FontSize="20"></TextBlock>
+                        <TextBlock Text="Скидка" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" FontSize="20"></TextBlock>
+                        <TextBlock Text="{Binding ProductDiscountAmount,StringFormat={}{0:0} %}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" FontSize="35"></TextBlock>
+                        <StackPanel Orientation="Horizontal" Margin="10">
+                            <Button Name="BtnMinus" Click="BtnMinus_Click" ></Button>
+                            <TextBlock></TextBlock>
+                            <Button Name="BtnPlus" Click="BtnPlus_Click" ></Button>
+                        </StackPanel>
+                        
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Window>

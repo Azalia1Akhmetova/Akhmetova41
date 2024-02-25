@@ -25,6 +25,8 @@ namespace Akhmetova41
         int CurrentPage = 0;
         List<Shoes> CurrentPageList=new List<Shoes>();
         List<Shoes> TableList;
+        List<Product> selectedProducts = new List<Product>();
+        List<OrderProduct> selectedOrderProducts = new List<OrderProduct>();
         public Shoes(User user)
         {
             InitializeComponent();
@@ -111,8 +113,21 @@ namespace Akhmetova41
         {
             UpdateShoes();
         }
-        
 
-        
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if(ShoesListView.SelectedIndex>=0)
+            {
+                var prod=ShoesListView.SelectedItem as Product;
+                
+            }
+        }
+
+        private void OrderBtn_Click(object sender, RoutedEventArgs e)
+        {
+            selectedProducts=selectedProducts.Distinct().ToList();
+            OrderWindow orderWindow = new OrderWindow(selectedOrderProducts, selectedProducts, FioTB.Text);
+            orderWindow.ShowDialog();
+        }
     }
 }

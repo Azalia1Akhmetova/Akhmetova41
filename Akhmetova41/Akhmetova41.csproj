@@ -92,6 +92,9 @@
     <Compile Include="OrderProduct.cs">
       <DependentUpon>AkhmetovaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="OrderWindow.xaml.cs">
+      <DependentUpon>OrderWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PickUpPoint.cs">
       <DependentUpon>AkhmetovaModel.tt</DependentUpon>
     </Compile>
@@ -127,6 +130,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="OrderWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Shoes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
