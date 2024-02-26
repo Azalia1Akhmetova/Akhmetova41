@@ -30,18 +30,24 @@ namespace Akhmetova41
         public Shoes(User user)
         {
             InitializeComponent();
-
-            FioTB.Text = user.UserSurname + " " + user.UserName + " " + user.UserPatronymic;
-            switch(user.UserRole)
+            if(user!=null)
             {
-                case 1:
-                    RoleTB.Text = "Клиент";break;
-                case 2:
-                    RoleTB.Text = "Менеджер";break;
-                case 3:
-                    RoleTB.Text = "Администратор";break;
+                FioTB.Text = user.UserSurname + " " + user.UserName + " " + user.UserPatronymic;
+                switch (user.UserRole)
+                {
+                    case 1:
+                        RoleTB.Text = "Клиент"; break;
+                    case 2:
+                        RoleTB.Text = "Менеджер"; break;
+                    case 3:
+                        RoleTB.Text = "Администратор"; break;
+                }
             }
-
+            else
+            {
+                FioTB.Text = "Гость";
+                RoleTB.Text = "Отсутствует";
+            }
             var currentShoes = Akhmetova41Entities.GetContext().Product.ToList();
             ShoesListView.ItemsSource = currentShoes;
             ComboType.SelectedIndex = 0;
@@ -116,16 +122,38 @@ namespace Akhmetova41
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            if(ShoesListView.SelectedIndex>=0)
+            if (ShoesListView.SelectedIndex >= 0)
             {
-                var prod=ShoesListView.SelectedItem as Product;
-                
+                var prod = ShoesListView.SelectedItem as Product;
+                selectedProducts.Add(prod);
+
+                var newOrderProd = new OrderProduct();
+                //newOrderProd.OrderID = newOrderID;
+
+                newOrderProd.ProductArticleNumber = prod.ProductArticleNumber;
+                newOrderProd.Amount = 1;
+
+                var selOP = selectedOrderProducts.Where(p => Equals(p.ProductArticleNumber, prod.ProductArticleNumber));
+                if (selOP.Count() == 0)
+                {
+                    selectedOrderProducts.Add(newOrderProd);
+                }
+                else
+                {
+                    foreach (OrderProduct p in selectedOrderProducts)
+                    {
+                        if (p.ProductArticleNumber == prod.ProductArticleNumber)
+                            p.Amount++;
+                    }
+                }
+
+                ShoesListView.SelectedIndex = -1;
             }
         }
 
         private void OrderBtn_Click(object sender, RoutedEventArgs e)
         {
-            selectedProducts=selectedProducts.Distinct().ToList();
+            selectedProducts = selectedProducts.Distinct().ToList();
             OrderWindow orderWindow = new OrderWindow(selectedOrderProducts, selectedProducts, FioTB.Text);
             orderWindow.ShowDialog();
         }

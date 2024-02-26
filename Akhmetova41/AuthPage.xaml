@@ -27,7 +27,7 @@
                    Height="40" TextAlignment="Center" Grid.Row="1" Grid.Column="0"></TextBlock>
         <TextBox Height="40" Width="200" FontSize="25" Name="PassBox" Grid.Row="1" Grid.Column="1"></TextBox>
       
-        <Button Grid.Row="2" Grid.Column="0" Content="Войти как гость"></Button>
+        <Button Grid.Row="2" Grid.Column="0" Content="Войти как гость" Name="GuestBtn" Click="GuestBtn_Click"></Button>
         <Button Grid.Row="2" Grid.Column="1" Content="Войти" Name="LogBtn" Click="LogBtn_Click"></Button>
     </Grid>
 </Page>

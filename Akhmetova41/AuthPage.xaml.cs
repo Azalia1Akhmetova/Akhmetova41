@@ -49,5 +49,13 @@ namespace Akhmetova41
                 LogBtn.IsEnabled = true;
             }
         }
+
+        private void GuestBtn_Click(object sender, RoutedEventArgs e)
+        {
+            User user = null;
+            Manager.MainFrame.Navigate(new Shoes(user));
+            LogBox.Text = "";
+            PassBox.Text = "";
+        }
     }
 }
